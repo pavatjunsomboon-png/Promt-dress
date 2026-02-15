@@ -3,60 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chibi Prompt Generator</title>
+    <title>Chibi Prompt Generator V4</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-purple-500 to-purple-800 p-2 sm:p-4">
-    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-4 sm:p-6">
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-4 sm:p-6 mb-20">
         <h1 class="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-2">
-            🎨 Chibi Prompt Generator
+            🎨 Chibi Prompt Generator V4
         </h1>
-        <p class="text-center text-gray-600 text-sm mb-6">สร้างพร้อมท์ Chibi Character</p>
+        <p class="text-center text-gray-600 text-sm mb-6">สร้างพร้อมท์ Chibi Character แบบละเอียด</p>
 
+        <!-- Gender Type -->
         <div class="mb-6 p-4 bg-gray-50 rounded-xl border-l-4 border-purple-500">
             <h2 class="font-bold text-lg mb-3 flex items-center gap-2">
-                👤 รูปร่าง <span class="text-red-500 text-sm">*</span>
+                ⚧️ เพศ (Gender) <span class="text-red-500 text-sm">*</span>
             </h2>
-            <div class="grid grid-cols-2 gap-2" id="bodyTypeGrid"></div>
+            <div class="grid grid-cols-3 gap-2" id="genderGrid"></div>
         </div>
 
+        <!-- Body Frame -->
         <div class="mb-6 p-4 bg-gray-50 rounded-xl border-l-4 border-purple-500">
             <h2 class="font-bold text-lg mb-3 flex items-center gap-2">
-                🧍 ท่าทาง <span class="text-red-500 text-sm">*</span>
+                👤 โครงร่าง (Body Frame) <span class="text-red-500 text-sm">*</span>
+            </h2>
+            <div class="grid grid-cols-2 gap-2" id="bodyFrameGrid"></div>
+        </div>
+
+        <!-- Body Details -->
+        <div class="mb-6 p-4 bg-gray-50 rounded-xl border-l-4 border-purple-500">
+            <h2 class="font-bold text-lg mb-3 flex items-center gap-2">
+                📐 รายละเอียด (Body Details) <span class="text-red-500 text-sm">*</span>
+            </h2>
+            <div class="grid grid-cols-2 gap-2" id="bodyDetailsGrid"></div>
+        </div>
+
+        <!-- Chibi Ratio -->
+        <div class="mb-6 p-4 bg-gray-50 rounded-xl border-l-4 border-purple-500">
+            <h2 class="font-bold text-lg mb-3 flex items-center gap-2">
+                📏 สัดส่วน Chibi <span class="text-red-500 text-sm">*</span>
+            </h2>
+            <div class="grid grid-cols-3 gap-2" id="chibiRatioGrid"></div>
+        </div>
+
+        <!-- Pose -->
+        <div class="mb-6 p-4 bg-gray-50 rounded-xl border-l-4 border-purple-500">
+            <h2 class="font-bold text-lg mb-3 flex items-center gap-2">
+                🧍 ท่าทาง (Pose) <span class="text-red-500 text-sm">*</span>
             </h2>
             <div class="grid grid-cols-2 gap-2" id="poseGrid"></div>
         </div>
 
-        <div class="mb-6 p-4 bg-gray-50 rounded-xl border-l-4 border-purple-500">
+        <!-- Female Standing Poses -->
+        <div class="mb-6 p-4 bg-pink-50 rounded-xl border-l-4 border-pink-500">
             <h2 class="font-bold text-lg mb-3 flex items-center gap-2">
-                😊 สีหน้า <span class="text-red-500 text-sm">*</span>
+                👩 ท่าทางผู้หญิง (Female Poses) <span class="text-gray-500 text-sm">(ตัวเลือก)</span>
             </h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="expressionGrid"></div>
+            <div class="grid grid-cols-2 gap-2" id="femalePoseGrid"></div>
         </div>
 
+        <!-- Expression -->
         <div class="mb-6 p-4 bg-gray-50 rounded-xl border-l-4 border-purple-500">
             <h2 class="font-bold text-lg mb-3 flex items-center gap-2">
-                👕 สีเสื้อ <span class="text-red-500 text-sm">*</span>
+                😊 สีหน้า (Expression) <span class="text-red-500 text-sm">*</span>
             </h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="shirtColorGrid"></div>
+            <div class="grid grid-cols-2 gap-2" id="expressionGrid"></div>
         </div>
 
+        <!-- Shirt Color -->
+        <div class="mb-6 p-4 bg-gray-50 rounded-xl border-l-4 border-purple-500">
+            <h2 class="font-bold text-lg mb-3 flex items-center gap-2">
+                👕 สีเสื้อ (Shirt Color) <span class="text-red-500 text-sm">*</span>
+            </h2>
+            <div class="grid grid-cols-3 gap-2" id="shirtColorGrid"></div>
+        </div>
+
+        <!-- Name Tag -->
         <div class="mb-6 p-4 bg-gray-50 rounded-xl border-l-4 border-purple-500">
             <h2 class="font-bold text-lg mb-3">🏷️ ชื่อบนป้าย</h2>
             <input type="text" id="nameTagInput" placeholder="กรอกชื่อ (เช่น WIN, JOHN)" maxlength="20" class="w-full p-3 border-2 border-gray-200 rounded-lg font-bold uppercase" />
             <p class="text-xs text-gray-600 mt-2">💡 ป้ายพื้นดำ ตัวขาว (ถ้าไม่กรอกจะใช้ "WIN")</p>
         </div>
 
+        <!-- Accessories -->
         <div class="mb-6 p-4 bg-gray-50 rounded-xl border-l-4 border-purple-500">
             <h2 class="font-bold text-lg mb-3">⌚ เครื่องประดับ</h2>
             <div class="space-y-2" id="accessoriesGrid"></div>
         </div>
 
+        <!-- Buttons -->
         <div class="space-y-3">
             <button id="generateBtn" disabled class="w-full p-4 rounded-xl font-bold text-lg transition-all bg-gray-300 text-gray-500 cursor-not-allowed">🎯 สร้างพร้อมท์</button>
             <button id="resetBtn" class="w-full p-3 bg-red-500 text-white rounded-xl font-bold hover:bg-red-600 transition-all">🔄 เคลียร์ทั้งหมด</button>
         </div>
 
+        <!-- Result -->
         <div id="resultSection" class="mt-6 p-4 bg-yellow-50 border-2 border-yellow-400 rounded-xl hidden">
             <h3 class="font-bold text-lg mb-3 text-center">📝 พร้อมท์ที่สร้าง</h3>
             <div class="mb-4 p-3 bg-white rounded-lg border border-yellow-300">
@@ -71,30 +111,525 @@
     </div>
 
     <script>
-const selections={body:null,pose:null,expression:null,shirtColor:'red',nameTag:'',accessories:[]};
-const bodyTypes={A:{name:'ผอมสูง',desc:'185cm, เพรียวบาง',prompt:'Chibi Proportions: Head = 58% of total height, Body = 42% of total height.\\nReal-life height reference: 185 cm.\\nTall and slim body type, lean silhouette.\\nShoulder-to-waist ratio 1.00:0.72.\\nTorso vs legs (excluding head): torso 45% / legs 55%.\\nLimb thickness: thin.'},B:{name:'สมส่วน',desc:'175cm, พอดี',prompt:'Chibi Proportions: Head = 60% of total height, Body = 40% of total height.\\nReal-life height reference: 175 cm.\\nProportional body type, balanced silhouette.\\nShoulder-to-waist ratio 1.00:0.80.\\nTorso vs legs (excluding head): torso 50% / legs 50%.\\nLimb thickness: average.'},C:{name:'อ้วนสูง',desc:'188cm, ใหญ่',prompt:'Chibi Proportions: Head = 58% of total height, Body = 42% of total height.\\nReal-life height reference: 188 cm.\\nTall and heavy-set body type, broader torso with a visible belly, thick arms and legs.\\nShoulder-to-waist ratio 1.05:0.95.\\nTorso vs legs (excluding head): torso 50% / legs 50%.\\nLimb thickness: thick.'},D:{name:'อ้วนเตี้ย',desc:'160cm, อวบ',prompt:'Chibi Proportions: Head = 66% of total height, Body = 34% of total height.\\nReal-life height reference: 160 cm.\\nShort and heavy-set body type, compact/stocky silhouette, shorter limbs, larger belly and torso.\\nShoulder-to-waist ratio 1.05:1.00.\\nTorso vs legs (excluding head): torso 58% / legs 42%.\\nLimb thickness: thick.'}};
-const poses={P1:{name:'ยืนตรง',desc:'มาตรฐาน',prompt:'Full-body, standing upright in a professional posture, shoulders relaxed, feet slightly apart, arms naturally at the sides.'},P2:{name:'ยกมือทักทาย',desc:'โบกมือ',prompt:'Standing, friendly smile, one hand raised in a small wave (open palm), the other hand relaxed by the side.'},P3:{name:'กอดอก',desc:'มั่นใจ',prompt:'Standing, arms crossed confidently, slight friendly smile, professional and approachable.'},P4:{name:'ล้วงกระเป๋า',desc:'ลุคเท่',prompt:'Standing, one hand in trouser pocket, the other hand relaxed, casual-professional stance, slight smile.'},P5:{name:'ถือแท็บเล็ต',desc:'ออฟฟิศ',prompt:'Standing, holding a tablet or document folder with one hand, the other hand pointing gently to the screen/paper, professional presentation pose.'},P6:{name:'ชี้/อธิบาย',desc:'พรีเซนต์',prompt:'Standing, one hand open-palmed gesturing as if explaining, the other hand relaxed, confident presenter posture.'}};
-const expressions={E1:{name:'ยิ้มเป็นมิตร',prompt:'Warm friendly smile, natural expression.'},E2:{name:'มั่นใจสงบ',prompt:'Calm confident expression, slight smile.'},E3:{name:'มุ่งมั่น',prompt:'Focused but friendly, subtle smile.'}};
-const shirtColors={red:{name:'แดง 🔴',prompt:'red polo shirt'},blue:{name:'น้ำเงิน 🔵',prompt:'blue polo shirt'},black:{name:'ดำ ⚫',prompt:'black polo shirt'},white:{name:'ขาว ⚪',prompt:'white polo shirt'},gray:{name:'เทา 🔘',prompt:'gray polo shirt'},navy:{name:'กรมท่า 🔵',prompt:'navy blue polo shirt'}};
-const accessories={watch:{name:'🕐 นาฬิกา',prompt:'Wearing a simple black leather-strap wristwatch on the left wrist.'},ring:{name:'💍 แหวน',prompt:'Wearing a minimal silver ring on the ring finger (subtle, not flashy).'},necklace:{name:'📿 สร้อยคอ',prompt:'Wearing a thin silver necklace, minimal and professional.'},lanyard:{name:'🪪 สายคล้อง',prompt:'Wearing a simple employee ID lanyard (plain, minimal), no extra readable text.'},bracelet:{name:'📿 สร้อยข้อมือ',prompt:'Wearing a subtle dark bracelet on one wrist (minimal).'}};
-function init(){renderBodyTypes();renderPoses();renderExpressions();renderShirtColors();renderAccessories();setupEventListeners()}
-function renderBodyTypes(){const grid=document.getElementById('bodyTypeGrid');Object.entries(bodyTypes).forEach(([key,val])=>{const btn=document.createElement('button');btn.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';btn.innerHTML=`<div class="font-bold text-sm">${key}) ${val.name}</div><div class="text-xs text-gray-600">${val.desc}</div>`;btn.onclick=()=>selectBody(key,btn);grid.appendChild(btn)})}
-function renderPoses(){const grid=document.getElementById('poseGrid');Object.entries(poses).forEach(([key,val])=>{const btn=document.createElement('button');btn.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';btn.innerHTML=`<div class="font-bold text-sm">${key}) ${val.name}</div><div class="text-xs text-gray-600">${val.desc}</div>`;btn.onclick=()=>selectPose(key,btn);grid.appendChild(btn)})}
-function renderExpressions(){const grid=document.getElementById('expressionGrid');Object.entries(expressions).forEach(([key,val])=>{const btn=document.createElement('button');btn.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';btn.innerHTML=`<div class="font-bold text-sm">${key}) ${val.name}</div>`;btn.onclick=()=>selectExpression(key,btn);grid.appendChild(btn)})}
-function renderShirtColors(){const grid=document.getElementById('shirtColorGrid');Object.entries(shirtColors).forEach(([key,val])=>{const btn=document.createElement('button');btn.className=key==='red'?'p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50':'p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';btn.innerHTML=`<div class="font-bold text-sm">${val.name}</div>`;btn.onclick=()=>selectShirtColor(key,btn);grid.appendChild(btn)})}
-function renderAccessories(){const grid=document.getElementById('accessoriesGrid');Object.entries(accessories).forEach(([key,val])=>{const label=document.createElement('label');label.className='flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all border-gray-200 bg-white';label.innerHTML=`<input type="checkbox" value="${key}" class="w-5 h-5"><span class="font-semibold text-sm">${val.name}</span>`;label.querySelector('input').onchange=(e)=>toggleAccessory(key,e.target.checked,label);grid.appendChild(label)})}
-function selectBody(key,btn){document.querySelectorAll('#bodyTypeGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});btn.className='p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50';selections.body=key;checkComplete()}
-function selectPose(key,btn){document.querySelectorAll('#poseGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});btn.className='p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50';selections.pose=key;checkComplete()}
-function selectExpression(key,btn){document.querySelectorAll('#expressionGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});btn.className='p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50';selections.expression=key;checkComplete()}
-function selectShirtColor(key,btn){document.querySelectorAll('#shirtColorGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});btn.className='p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50';selections.shirtColor=key}
-function toggleAccessory(key,checked,label){if(checked){selections.accessories.push(key);label.className='flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all border-green-500 bg-green-50'}else{selections.accessories=selections.accessories.filter(a=>a!==key);label.className='flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all border-gray-200 bg-white'}}
-function checkComplete(){const btn=document.getElementById('generateBtn');if(selections.body&&selections.pose&&selections.expression){btn.disabled=false;btn.className='w-full p-4 rounded-xl font-bold text-lg transition-all bg-gradient-to-r from-purple-500 to-purple-700 text-white hover:shadow-lg'}}
-function generatePrompt(){if(!selections.body||!selections.pose||!selections.expression){showNotif('❌ กรุณาเลือกรูปร่าง ท่าทาง และสีหน้า');return}const nameOnTag=selections.nameTag||'WIN';let prompt=`1) ID / Likeness\nUse the provided reference photo as the identity anchor. Preserve facial likeness as the top priority. Ensure it is clearly the SAME person; do not change identity.\n\n2) Style\nSemi-realistic chibi / super-deformed caricature. Cute proportions, clean lines, soft shading.\n\n3) Face Accuracy Rules\nKeep the face highly accurate and recognizable: same facial structure, skin tone, hairstyle, eye shape and spacing, mouth shape, nose shape.\n\n4) Caricature Rule\nKeep all facial proportions natural and consistent. Do NOT over-distort any features.\n\n5) Detail Enhancement\nPreserve exact facial geometry from reference photo.\nIncrease cheekbone and jawline definition.\nAvoid overly round face.\nMake nose slightly fuller and wider at base.\nMaintain accurate eye spacing and proportions.\n\nAdd natural skin texture and slight realistic shine.\nAvoid overly smooth or plastic skin.\nKeep skin natural, not overly smooth.\n\nEnhance wristwatch detail and strap texture.\nMaintain accurate hand anatomy.\nAdd gentle contour shadow along cheekbones and jawline.\n\n6) Lighting / Render\nClean soft shading, crisp details, studio soft lighting, clean shadows.\n\n7) Composition / Background\nCentered composition, full-body, simple pastel background.\n\n8) Quality\nHigh resolution, sharp, high detail.\n\n9) Outfit:\nPolite office work attire: ${shirtColors[selections.shirtColor].prompt}, long trousers, black leather dress shoes (formal leather shoes).\nAdd an employee-style name tag on the left chest of the polo shirt.\nName tag: black background, white text, clean and readable.\nText on the name tag: "${nameOnTag}" (uppercase).\nKeep it neat, aligned, and proportional to the shirt.\n\n10) Body Type & Proportions:\n${bodyTypes[selections.body].prompt}\n\n11) Pose:\n${poses[selections.pose].prompt}\n\n12) Facial Expression:\n${expressions[selections.expression].prompt}\n`;if(selections.accessories.length>0){prompt+=`\n13) Accessories:\n`;selections.accessories.forEach(acc=>{prompt+=accessories[acc].prompt+'\n'})}prompt+=`\nSafety/Quality Constraint:\nHands and fingers are anatomically correct, no extra fingers, clean hand pose.`;document.getElementById('promptText').textContent=prompt;updateSummary();document.getElementById('resultSection').classList.remove('hidden');document.getElementById('resultSection').scrollIntoView({behavior:'smooth'})}
-function updateSummary(){const summary=document.getElementById('summaryText');summary.innerHTML=`<div>▸ รูปร่าง: ${bodyTypes[selections.body].name}</div><div>▸ ท่าทาง: ${poses[selections.pose].name}</div><div>▸ สีหน้า: ${expressions[selections.expression].name}</div><div>▸ สีเสื้อ: ${shirtColors[selections.shirtColor].name}</div><div>▸ ชื่อบนป้าย: ${selections.nameTag||'WIN'}</div>${selections.accessories.length>0?`<div>▸ เครื่องประดับ: ${selections.accessories.map(a=>accessories[a].name).join(', ')}</div>`:''}`}
-function copyPrompt(){const text=document.getElementById('promptText').textContent;navigator.clipboard.writeText(text).then(()=>{showNotif('✅ คัดลอกสำเร็จ!')}).catch(()=>{showNotif('❌ ไม่สามารถคัดลอกได้')})}
-function resetAll(){selections.body=null;selections.pose=null;selections.expression=null;selections.shirtColor='red';selections.nameTag='';selections.accessories=[];document.querySelectorAll('#bodyTypeGrid button, #poseGrid button, #expressionGrid button').forEach(btn=>{btn.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});document.querySelectorAll('#shirtColorGrid button').forEach((btn,i)=>{btn.className=i===0?'p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50':'p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});document.querySelectorAll('#accessoriesGrid input').forEach(cb=>{cb.checked=false;cb.closest('label').className='flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all border-gray-200 bg-white'});document.getElementById('nameTagInput').value='';document.getElementById('resultSection').classList.add('hidden');document.getElementById('generateBtn').disabled=true;document.getElementById('generateBtn').className='w-full p-4 rounded-xl font-bold text-lg transition-all bg-gray-300 text-gray-500 cursor-not-allowed';showNotif('🔄 รีเซ็ตเรียบร้อย')}
-function showNotif(msg){const notif=document.getElementById('notification');notif.textContent=msg;notif.classList.remove('hidden');setTimeout(()=>notif.classList.add('hidden'),3000)}
-function setupEventListeners(){document.getElementById('generateBtn').onclick=generatePrompt;document.getElementById('resetBtn').onclick=resetAll;document.getElementById('copyBtn').onclick=copyPrompt;document.getElementById('nameTagInput').oninput=(e)=>{selections.nameTag=e.target.value.toUpperCase();e.target.value=selections.nameTag}}
+const selections={
+    gender:null,
+    bodyFrame:null,
+    bodyDetail:null,
+    chibiRatio:null,
+    pose:null,
+    femalePose:null,
+    expression:null,
+    shirtColor:'red',
+    nameTag:'',
+    accessories:[]
+};
+
+const genderTypes={
+    M:{name:'Masculine',prompt:'Body structure masculine.\nNaturally broader shoulders.\nChest flat and firm.\nHip width slightly narrower than shoulders.\nMaintain realistic male anatomy.'},
+    F:{name:'Feminine',prompt:'Body structure feminine.\nSofter shoulder line.\nNatural chest contour (proportional, not exaggerated).\nWaist slightly tapered.\nHip width naturally wider than waist.\nMaintain realistic female anatomy.'},
+    N:{name:'Neutral',prompt:'Gender-neutral body structure.\nBalanced shoulder and hip ratio.\nSubtle natural curves only.\nAvoid strong masculine or feminine exaggeration.'}
+};
+
+const bodyFrames={
+    SLIM_TALL:{name:'ผอมสูง',prompt:'Tall and slim silhouette.\nLean torso.\nLonger leg proportion (45% torso / 55% legs).\nLimbs thin but natural.'},
+    AVERAGE:{name:'สมส่วน',prompt:'Balanced body silhouette.\nEven torso and leg proportion (50% / 50%).\nModerate limb thickness.'},
+    ATHLETIC:{name:'ลีนฟิต',prompt:'Athletic toned body.\nDefined but natural muscle.\nSlight V-shape upper body.'},
+    HEAVY_TALL:{name:'อ้วนสูง',prompt:'Tall heavy-set body.\nBroader torso.\nVisible belly volume.\nThicker limbs.'},
+    COMPACT_HEAVY:{name:'อ้วนเตี้ย',prompt:'Short and compact body.\nShorter legs.\nFuller torso and hips.\nThicker arms and legs.'},
+    PETITE:{name:'ตัวเล็ก',prompt:'Petite body frame.\nShorter limbs.\nSmaller shoulder span.\nCompact silhouette.'}
+};
+
+const bodyDetails={
+    NATURAL:{name:'ธรรมชาติ',prompt:'Maintain natural body proportions from reference.\nDo not exaggerate curves.'},
+    CURVY:{name:'ทรงโค้งชัด',prompt:'Slightly emphasized waist-to-hip contrast.\nNatural feminine curve.\nKeep tasteful and realistic proportions.'},
+    BROAD_SHOULDER:{name:'ไหล่กว้าง',prompt:'Shoulders slightly broader.\nStrong upper body silhouette.\nMaintain natural anatomy.'},
+    SLIGHT_BELLY:{name:'พุงนิดหน่อย',prompt:'Slight belly contour visible.\nSoft natural abdominal volume.\nAvoid exaggeration.'},
+    FULLER_CHEST:{name:'อกชัดขึ้น',prompt:'Chest contour slightly more defined.\nKeep proportional and realistic.\nAvoid oversexualization.'},
+    WIDER_HIPS:{name:'สะโพกกว้างขึ้น',prompt:'Hip width slightly emphasized.\nNatural lower body curve.\nMaintain tasteful anatomy.'}
+};
+
+const chibiRatio={
+    CUTE:{name:'Cute 60/40',prompt:'Head 60% / Body 40%.'},
+    BALANCED:{name:'Balanced 58/42',prompt:'Head 58% / Body 42%.'},
+    REALISTIC:{name:'Realistic 55/45',prompt:'Head 55% / Body 45%.'}
+};
+
+const poses={
+    P1:{name:'ยืนตรง',desc:'มาตรฐาน',prompt:'Full-body, standing upright in a professional posture, shoulders relaxed, feet slightly apart, arms naturally at the sides.'},
+    P2:{name:'ยกมือทักทาย',desc:'โบกมือ',prompt:'Standing, friendly smile, one hand raised in a small wave (open palm), the other hand relaxed by the side.'},
+    P3:{name:'กอดอก',desc:'มั่นใจ',prompt:'Standing, arms crossed confidently, slight friendly smile, professional and approachable.'},
+    P4:{name:'ล้วงกระเป๋า',desc:'ลุคเท่',prompt:'Standing, one hand in trouser pocket, the other hand relaxed, casual-professional stance, slight smile.'},
+    P5:{name:'ถือแท็บเล็ต',desc:'ออฟฟิศ',prompt:'Standing, holding a tablet or document folder with one hand, the other hand pointing gently to the screen/paper, professional presentation pose.'},
+    P6:{name:'ชี้/อธิบาย',desc:'พรีเซนต์',prompt:'Standing, one hand open-palmed gesturing as if explaining, the other hand relaxed, confident presenter posture.'},
+    P7:{name:'ชูแก้วเบียร์',desc:'ชนแก้ว',prompt:'Standing full-body. Holding a beer glass up in a cheerful toast gesture. Relaxed posture. Friendly bright smile. Natural wrist angle. Beer glass semi-filled with light foam. Keep facial likeness accurate. Hands anatomically correct, five fingers, clean pose.'},
+    P8:{name:'จิบเบียร์',desc:'ชิลๆ',prompt:'Standing full-body. Holding a beer glass near lips, small sip motion. Soft relaxed eyes. Calm confident expression with a slight smile. Foam visible at top of the glass. Maintain accurate facial geometry. Hands anatomically correct, five fingers, clean pose.'},
+    P9:{name:'ฟองเบียร์ติดปาก',desc:'ขี้เล่น',prompt:'Standing full-body. One hand holding a beer glass. Light beer foam slightly visible on upper lip. Gentle laugh, playful expression. Keep proportions natural. Do not exaggerate facial distortion. Hands anatomically correct.'},
+    P10:{name:'ชนแก้ว',desc:'Cheers!',prompt:'Standing full-body. Arm extended slightly forward as if clinking glasses. Energetic smile. Slight forward body lean. Beer glass tilted slightly. Maintain chibi proportions. Hands anatomically correct, five fingers, clean pose.'},
+    P11:{name:'ยกแก้วสองมือ',desc:'ดีใจ',prompt:'Standing full-body. Holding a beer glass with both hands at chest level. Big joyful smile. Eyes slightly narrowed in happiness. Balanced stance. Accurate hand anatomy, no extra fingers.'},
+    P12:{name:'หัวเราะถือเบียร์',desc:'ทีมเวิร์ค',prompt:'Standing full-body. Head slightly tilted back laughing. Beer glass in one hand. Free hand relaxed by side. Natural dynamic posture. Maintain likeness accuracy. Hands anatomically correct, five fingers.'},
+    P13:{name:'ถือขวดเบียร์',desc:'คูลๆ',prompt:'Standing full-body. Holding a beer bottle casually. Small confident smile. Relaxed shoulders. Bottle label minimal and generic. Keep professional playful tone. Hands anatomically correct, five fingers, clean pose.'},
+    P14:{name:'กอดคอเพื่อน',desc:'มิตรภาพ',prompt:'Standing full-body. One arm around an imaginary friend (friendly side hug). Other hand holding a beer glass. Friendly big smile. Stable stance. Maintain facial likeness accuracy. Hands anatomically correct, five fingers, clean pose.'},
+    P15:{name:'ชี้แก้วอธิบาย',desc:'พรีเซนต์',prompt:'Standing full-body. Holding a beer glass in one hand. Other hand gently pointing at the beer glass as if explaining something. Confident expression. Professional playful tone. Balanced stance. Hands anatomically correct, five fingers.'},
+    P16:{name:'นิ้วโป้ง + เบียร์',desc:'Approved!',prompt:'Standing full-body. One hand holding a beer glass. Other hand giving a thumbs-up. Bright confident smile. Clear silhouette for sticker use. Hands anatomically correct, five fingers.'},
+    P17:{name:'ทำมือหัวใจ (สองมือ)',desc:'🫶 หัวใจ',prompt:'Standing full-body. Both hands forming a heart shape at chest level (clear heart silhouette). Warm friendly smile. Elbows slightly outward. Hands anatomically correct, five fingers each, natural finger bends. Clear silhouette for sticker.'},
+    P18:{name:'ทำมือหัวใจ (นิ้วโป้ง+ชี้)',desc:'🫰 หัวใจเล็ก',prompt:'Standing full-body. One hand making a small finger-heart gesture (thumb and index finger pinched). Other hand relaxed by side. Playful smile. Hands anatomically correct, five fingers, clean pose.'},
+    P19:{name:'ชูสองนิ้ว V',desc:'✌️ โพสยอดนิยม',prompt:'Standing full-body. One hand doing a V-sign near shoulder height. Friendly bright smile. Other hand relaxed. Hands anatomically correct, five fingers, clean pose.'},
+    P20:{name:'ชูสองมือ V',desc:'✌️✌️ สายคิ้วท์',prompt:'Standing full-body. Both hands doing V-signs near shoulders. Cheerful smile. Balanced stance. Hands anatomically correct, five fingers each, clean pose.'},
+    P21:{name:'โอเค OK sign',desc:'👌 มั่นใจ',prompt:'Standing full-body. One hand making an OK gesture (thumb and index finger circle), other fingers naturally extended. Confident friendly smile. Other hand relaxed. Hands anatomically correct, clean gesture.'},
+    P22:{name:'นิ้วโป้งสองมือ',desc:'👍👍 Approved',prompt:'Standing full-body. Both hands giving thumbs-up. Big cheerful smile. Elbows slightly bent. Hands anatomically correct, five fingers each, clean pose.'},
+    P23:{name:'ชี้มาที่ตัวเอง',desc:'👉 Me!',prompt:'Standing full-body. One thumb pointing toward own chest (self-introduction gesture). Friendly smile. Other hand relaxed. Clear sticker silhouette. Hands anatomically correct.'},
+    P24:{name:'ชี้ไปด้านข้าง',desc:'👉 ไปทางนี้',prompt:'Standing full-body. One hand pointing to the side as if introducing something off-screen. Presenter-friendly smile. Other hand relaxed. Hands anatomically correct, clean pose.'},
+    P25:{name:'ทำท่านับเงิน',desc:'💸 นับแบงก์',prompt:'Standing full-body. Both hands counting money bills (generic bills, no readable text). Slight mischievous grin. Bills held naturally with finger joints correct. Hands anatomically correct, five fingers each. Avoid extra fingers.'},
+    P26:{name:'ทำมือ "เงินๆ" ถูนิ้ว',desc:'🤑 money gesture',prompt:'Standing full-body. One hand doing the money-rub gesture (thumb rubbing against index and middle finger). Playful smirk. Other hand relaxed. Hands anatomically correct, clean pose.'},
+    P27:{name:'ถือเงินโชว์',desc:'💵 โชว์แบงก์',prompt:'Standing full-body. One hand holding a small fan of generic money bills (no readable text). Proud playful smile. Other hand on hip or relaxed. Hands anatomically correct, five fingers.'},
+    P28:{name:'ถือถุงช้อปปิ้ง',desc:'🛍️ สายช้อป',prompt:'Standing full-body. One hand holding a small shopping bag (minimal, generic). Happy satisfied smile. Other hand waving slightly. Hands anatomically correct.'},
+    P29:{name:'ทำท่าปรบมือ',desc:'👏 ดีมาก!',prompt:'Standing full-body. Hands clapping together lightly at chest level. Cheerful smile. Finger alignment correct. Hands anatomically correct, five fingers each.'},
+    P30:{name:'ทำท่า high-five',desc:'🖐️ ไฮไฟว์',prompt:'Standing full-body. One hand raised high-five pose (open palm facing forward). Excited smile. Other hand relaxed. Hands anatomically correct, five fingers, clean pose.'},
+    P31:{name:'ทำท่า "ชูมือชัยชนะ"',desc:'🙌 ดีใจ',prompt:'Standing full-body. Both hands raised above shoulder level in a victory/celebration gesture. Big joyful smile. Balanced stance. Hands anatomically correct, five fingers each.'},
+    P32:{name:'ทำท่า "มือป้องปากหัวเราะ"',desc:'🤭 ขำ',prompt:'Standing full-body. One hand lightly covering mouth while laughing (tasteful, not hiding face). Other hand relaxed. Playful laugh expression. Hands anatomically correct, five fingers.'}
+};
+
+const femalePoses={
+    F1:{name:'มือประสานด้านหน้า',desc:'สุภาพ นุ่มนวล',prompt:'Standing full-body.\nHands gently clasped in front of the body.\nRelaxed shoulders.\nSoft confident posture.\nBalanced weight distribution.\nMaintain natural feminine body alignment.'},
+    F2:{name:'เอียงสะโพกเล็กน้อย',desc:'ยืนผ่อนคลาย',prompt:'Standing full-body.\nWeight slightly shifted to one leg.\nSubtle hip angle.\nArms relaxed naturally by the sides.\nSoft confident stance.\nMaintain tasteful feminine posture.'},
+    F3:{name:'ไขว้ขาเบาๆ',desc:'Elegant',prompt:'Standing full-body.\nOne leg slightly crossed in front of the other.\nUpper body upright.\nHands relaxed or lightly clasped.\nElegant but natural posture.'},
+    F4:{name:'มือแตะเอวข้างหนึ่ง',desc:'มั่นใจสุภาพ',prompt:'Standing full-body.\nOne hand resting lightly on the waist.\nOther arm relaxed naturally.\nStraight posture.\nConfident yet friendly presence.'},
+    F5:{name:'กอดแฟ้ม/แท็บเล็ต',desc:'มืออาชีพ',prompt:'Standing full-body.\nHolding a folder or tablet gently against the body.\nShoulders relaxed.\nNatural balanced stance.\nProfessional feminine posture.'},
+    F6:{name:'มือไขว้ด้านหลัง',desc:'สุภาพเรียบร้อย',prompt:'Standing full-body.\nHands lightly clasped behind the back.\nStraight posture.\nRelaxed shoulders.\nCalm and composed appearance.'},
+    F7:{name:'โบกมือเบาๆ',desc:'เป็นมิตร',prompt:'Standing full-body.\nOne hand raised in a small wave.\nOpen palm.\nOther arm relaxed.\nNatural weight balance.'},
+    F8:{name:'ถือกระเป๋าข้างตัว',desc:'Working woman',prompt:'Standing full-body.\nOne arm holding a handbag or tote naturally at the side.\nOther arm relaxed.\nConfident upright posture.\nNatural feminine silhouette.'},
+    F9:{name:'แตะปลายผมเบาๆ',desc:'อ่อนโยน',prompt:'Standing full-body.\nOne hand gently touching hair near shoulder.\nOther arm relaxed.\nSubtle natural movement.\nMaintain realistic anatomy.'},
+    F10:{name:'สองมือเท้าเอว',desc:'มั่นใจแข็งแรง',prompt:'Standing full-body.\nBoth hands resting lightly on hips.\nElbows slightly outward.\nBalanced confident stance.\nAvoid exaggeration.\nMaintain natural feminine proportions.'}
+};
+
+const expressions={
+    E1:{name:'ยิ้มเป็นมิตร',prompt:'Warm friendly smile.\nNatural relaxed eyes.\nSubtle upward mouth curve.\nMaintain authentic facial likeness.'},
+    E2:{name:'มั่นใจสงบ',prompt:'Calm confident expression.\nSlight closed-mouth smile.\nStable eye contact.\nNatural facial muscle movement.'},
+    E3:{name:'ยิ้มกว้างสดใส',prompt:'Bright cheerful smile.\nTeeth slightly visible.\nEyes gently narrowed with happiness.\nKeep realistic muscle movement.'},
+    E4:{name:'หัวเราะเบาๆ',prompt:'Soft natural laugh.\nMouth slightly open.\nEyes slightly narrowed.\nMaintain authentic likeness, no exaggeration.'},
+    E5:{name:'หัวเราะเต็มที่',prompt:'Big joyful laughter.\nMouth open naturally.\nVisible teeth.\nCheeks lifted.\nDo not distort facial geometry.'},
+    E6:{name:'หน้ากวนๆ',prompt:'Playful smirk.\nOne side of mouth slightly raised.\nEyebrows subtly asymmetric.\nEyes sharp but friendly.\nKeep proportions realistic.'},
+    E7:{name:'ตลกขำๆ',prompt:'Silly playful expression.\nSlight exaggerated eyebrow lift.\nMouth curved in funny way but anatomically correct.\nDo not enlarge eyes unnaturally.'},
+    E8:{name:'ทำหน้ามึนๆ',prompt:'Confused expression.\nSlight eyebrow tilt.\nRelaxed mouth.\nNatural eye spacing maintained.'},
+    E9:{name:'หน้าทะเล้น',prompt:'Cheeky grin.\nSubtle eyebrow raise.\nSmall playful smile.\nMaintain likeness accuracy.'},
+    E10:{name:'ทำตาโตแกล้งๆ',prompt:'Playful widened eyes.\nSlight humorous exaggeration (no anime style).\nMouth small smirk.\nKeep facial geometry realistic.'},
+    E11:{name:'ทำปากจู๋',prompt:'Light pout expression.\nLips slightly pushed forward.\nEyes relaxed.\nAvoid distortion.'},
+    E12:{name:'ตกใจเบาๆ',prompt:'Mild surprised expression.\nEyes slightly widened.\nMouth slightly open.\nKeep anatomy realistic.'},
+    E13:{name:'จริงจังมืออาชีพ',prompt:'Serious professional expression.\nNeutral mouth.\nFocused eyes.\nNo exaggeration.'},
+    E14:{name:'ภูมิใจ',prompt:'Proud expression.\nChin slightly raised.\nConfident eye focus.\nSubtle smile.'},
+    E15:{name:'เหนื่อยนิดๆ',prompt:'Slight tired but friendly look.\nRelaxed eyelids.\nNatural mouth line.\nMaintain likeness.'},
+    E16:{name:'ยักคิ้วกวนๆ',prompt:'One eyebrow slightly raised.\nPlayful smirk.\nBalanced facial geometry.\nNo distortion.'},
+    E17:{name:'ขำแบบรู้กัน',prompt:'Knowing smile.\nSubtle cheek lift.\nSoft narrowed eyes.\nNatural muscle movement.'},
+    E18:{name:'หน้าทำงานโฟกัส',prompt:'Focused expression.\nSlight brow concentration.\nMouth neutral.\nAuthentic facial tension.'},
+    E19:{name:'ดีใจสุดๆ',prompt:'Excited joyful expression.\nEyes bright.\nBig open smile.\nMaintain anatomical correctness.'},
+    E20:{name:'อายๆ เขินๆ',prompt:'Shy smile.\nSlight downward chin tilt.\nSoft eye contact.\nNatural realistic shading.'}
+};
+
+const shirtColors={
+    red:{name:'แดง 🔴',prompt:'red polo shirt'},
+    blue:{name:'น้ำเงิน 🔵',prompt:'blue polo shirt'},
+    black:{name:'ดำ ⚫',prompt:'black polo shirt'},
+    white:{name:'ขาว ⚪',prompt:'white polo shirt'},
+    gray:{name:'เทา 🔘',prompt:'gray polo shirt'},
+    navy:{name:'กรมท่า 🔵',prompt:'navy blue polo shirt'}
+};
+
+const accessories={
+// ===== ORIGINAL =====
+    watch:{name:'🕐 นาฬิกา',prompt:'Wearing a simple black leather-strap wristwatch on the left wrist.'},
+    ring:{name:'💍 แหวน',prompt:'Wearing a minimal silver ring on the ring finger (subtle, not flashy).'},
+    necklace:{name:'📿 สร้อยคอ',prompt:'Wearing a thin silver necklace, minimal and professional.'},
+    lanyard:{name:'🪪 สายคล้อง',prompt:'Wearing a simple employee ID lanyard (plain, minimal), no extra readable text.'},
+    bracelet:{name:'📿 สร้อยข้อมือ',prompt:'Wearing a subtle dark bracelet on one wrist (minimal).'},
+
+    // ===== HEADWEAR =====
+    cap:{name:'🧢 หมวกแก๊ป',prompt:'Wearing a simple baseball cap, minimal design, no logo, natural head fit.'},
+    topHat:{name:'🎩 หมวกทรงสูง',prompt:'Wearing a classic tall top hat, clean black design, proportional to head size.'},
+    cowboy:{name:'🤠 หมวกคาวบอย',prompt:'Wearing a simple cowboy-style hat, minimal detail, no logo.'},
+    piratePatch:{name:'🏴‍☠️ ผ้าปิดตาโจรสลัด',prompt:'Wearing a pirate-style eye patch on one eye, strap natural and proportional, keep face recognizable.'},
+    heroMask:{name:'🦸 หน้ากากฮีโร่',prompt:'Wearing a simple superhero-style eye mask, minimal design, no brand reference.'},
+    crown:{name:'👑 มงกุฎเล็ก',prompt:'Wearing a small playful crown, centered and balanced, not oversized.'},
+    gradCap:{name:'🎓 หมวกบัณฑิต',prompt:'Wearing a graduation cap, simple tassel, natural alignment.'},
+    helmet:{name:'⛑️ หมวกนิรภัย',prompt:'Wearing a simple safety helmet, clean design, no logo.'},
+    headphones:{name:'🎧 หูฟังครอบหัว',prompt:'Wearing modern over-ear headphones, minimal design, no visible brand text.'},
+
+    // ===== HAIR ACCESSORIES =====
+    bow:{name:'🎀 โบว์ผูกผม',prompt:'Wearing a small bow hair accessory, neat placement, proportional size.'},
+    flowerClip:{name:'🌼 ดอกไม้ติดผม',prompt:'Wearing a single flower hair clip, soft natural placement.'},
+    sportHeadband:{name:'🏃 ที่คาดผมสปอร์ต',prompt:'Wearing a simple sporty headband, clean and minimal.'},
+    devilHorn:{name:'😈 ที่คาดผมเขาปีศาจ',prompt:'Wearing small playful devil horn headband, cute not scary.'},
+
+    // ===== FACE ACCESSORIES =====
+    sunglasses:{name:'🕶️ แว่นกันแดด',prompt:'Wearing simple sunglasses, modern minimal design, no logo.'},
+    roundGlasses:{name:'🤓 แว่นกลม',prompt:'Wearing thin round glasses, clean frame, no brand marking.'},
+    faceMask:{name:'😷 หน้ากากอนามัย',prompt:'Wearing a simple plain face mask, minimal design.'},
+    halfMask:{name:'🎭 หน้ากากแฟนซี',prompt:'Wearing a decorative half-face mask, minimal carnival style, keep identity recognizable.'},
+
+    // ===== FUN PROPS =====
+    backpack:{name:'🎒 สะพายเป้',prompt:'Wearing a simple backpack, minimal design, natural strap placement.'},
+    parrot:{name:'🦜 นกเกาะไหล่',prompt:'Small cartoon-style parrot sitting on shoulder, balanced scale, clear silhouette.'},
+    briefcase:{name:'💼 กระเป๋าเอกสาร',prompt:'Holding a simple briefcase, minimal design, professional tone.'},
+    pirateSword:{name:'🗡️ ดาบโจรสลัด',prompt:'Holding a toy-style pirate sword, non-realistic and safe design.'},
+    balloon:{name:'🎈 ลูกโป่ง',prompt:'Holding a balloon with thin string, balanced silhouette.'},
+    moneyFan:{name:'💵 ถือเงิน',prompt:'Holding a small fan of generic money bills, no readable text.'},
+    shoppingBag:{name:'🛍️ ถุงช้อปปิ้ง',prompt:'Holding a simple shopping bag, minimal design, no logo.'}
+};
+
+
+
+function init(){
+    renderGenders();
+    renderBodyFrames();
+    renderBodyDetails();
+    renderChibiRatios();
+    renderPoses();
+    renderFemalePoses();
+    renderExpressions();
+    renderShirtColors();
+    renderAccessories();
+    setupEventListeners();
+}
+
+function renderGenders(){
+    const grid=document.getElementById('genderGrid');
+    Object.entries(genderTypes).forEach(([key,val])=>{
+        const btn=document.createElement('button');
+        btn.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';
+        btn.innerHTML=`<div class="font-bold text-sm">${val.name}</div>`;
+        btn.onclick=()=>selectGender(key,btn);
+        grid.appendChild(btn);
+    });
+}
+
+function renderBodyFrames(){
+    const grid=document.getElementById('bodyFrameGrid');
+    Object.entries(bodyFrames).forEach(([key,val])=>{
+        const btn=document.createElement('button');
+        btn.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';
+        btn.innerHTML=`<div class="font-bold text-sm">${val.name}</div>`;
+        btn.onclick=()=>selectBodyFrame(key,btn);
+        grid.appendChild(btn);
+    });
+}
+
+function renderBodyDetails(){
+    const grid=document.getElementById('bodyDetailsGrid');
+    Object.entries(bodyDetails).forEach(([key,val])=>{
+        const btn=document.createElement('button');
+        btn.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';
+        btn.innerHTML=`<div class="font-bold text-sm">${val.name}</div>`;
+        btn.onclick=()=>selectBodyDetail(key,btn);
+        grid.appendChild(btn);
+    });
+}
+
+function renderChibiRatios(){
+    const grid=document.getElementById('chibiRatioGrid');
+    Object.entries(chibiRatio).forEach(([key,val])=>{
+        const btn=document.createElement('button');
+        btn.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';
+        btn.innerHTML=`<div class="font-bold text-sm">${val.name}</div>`;
+        btn.onclick=()=>selectChibiRatio(key,btn);
+        grid.appendChild(btn);
+    });
+}
+
+function renderPoses(){
+    const grid=document.getElementById('poseGrid');
+    Object.entries(poses).forEach(([key,val])=>{
+        const btn=document.createElement('button');
+        btn.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';
+        btn.innerHTML=`<div class="font-bold text-sm">${key}) ${val.name}</div><div class="text-xs text-gray-600">${val.desc}</div>`;
+        btn.onclick=()=>selectPose(key,btn);
+        grid.appendChild(btn);
+    });
+}
+
+function renderFemalePoses(){
+    const grid=document.getElementById('femalePoseGrid');
+    Object.entries(femalePoses).forEach(([key,val])=>{
+        const btn=document.createElement('button');
+        btn.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';
+        btn.innerHTML=`<div class="font-bold text-sm">${key}) ${val.name}</div><div class="text-xs text-gray-600">${val.desc}</div>`;
+        btn.onclick=()=>selectFemalePose(key,btn);
+        grid.appendChild(btn);
+    });
+}
+
+function renderExpressions(){
+    const grid=document.getElementById('expressionGrid');
+    Object.entries(expressions).forEach(([key,val])=>{
+        const btn=document.createElement('button');
+        btn.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';
+        btn.innerHTML=`<div class="font-bold text-sm">${key}) ${val.name}</div>`;
+        btn.onclick=()=>selectExpression(key,btn);
+        grid.appendChild(btn);
+    });
+}
+
+function renderShirtColors(){
+    const grid=document.getElementById('shirtColorGrid');
+    Object.entries(shirtColors).forEach(([key,val])=>{
+        const btn=document.createElement('button');
+        btn.className=key==='red'?'p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50':'p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';
+        btn.innerHTML=`<div class="font-bold text-sm">${val.name}</div>`;
+        btn.onclick=()=>selectShirtColor(key,btn);
+        grid.appendChild(btn);
+    });
+}
+
+function renderAccessories(){
+    const grid=document.getElementById('accessoriesGrid');
+    Object.entries(accessories).forEach(([key,val])=>{
+        const label=document.createElement('label');
+        label.className='flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all border-gray-200 bg-white';
+        label.innerHTML=`<input type="checkbox" value="${key}" class="w-5 h-5"><span class="font-semibold text-sm">${val.name}</span>`;
+        label.querySelector('input').onchange=(e)=>toggleAccessory(key,e.target.checked,label);
+        grid.appendChild(label);
+    });
+}
+
+function selectGender(key,btn){
+    document.querySelectorAll('#genderGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});
+    btn.className='p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50';
+    selections.gender=key;
+    checkComplete();
+}
+
+function selectBodyFrame(key,btn){
+    document.querySelectorAll('#bodyFrameGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});
+    btn.className='p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50';
+    selections.bodyFrame=key;
+    checkComplete();
+}
+
+function selectBodyDetail(key,btn){
+    document.querySelectorAll('#bodyDetailsGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});
+    btn.className='p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50';
+    selections.bodyDetail=key;
+    checkComplete();
+}
+
+function selectChibiRatio(key,btn){
+    document.querySelectorAll('#chibiRatioGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});
+    btn.className='p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50';
+    selections.chibiRatio=key;
+    checkComplete();
+}
+
+function selectPose(key,btn){
+    document.querySelectorAll('#poseGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});
+    btn.className='p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50';
+    selections.pose=key;
+    selections.femalePose=null;
+    document.querySelectorAll('#femalePoseGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});
+    checkComplete();
+}
+
+function selectFemalePose(key,btn){
+    document.querySelectorAll('#femalePoseGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});
+    btn.className='p-3 rounded-lg border-2 transition-all border-pink-500 bg-pink-50';
+    selections.femalePose=key;
+    selections.pose=null;
+    document.querySelectorAll('#poseGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});
+    checkComplete();
+}
+
+function selectExpression(key,btn){
+    document.querySelectorAll('#expressionGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});
+    btn.className='p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50';
+    selections.expression=key;
+    checkComplete();
+}
+
+function selectShirtColor(key,btn){
+    document.querySelectorAll('#shirtColorGrid button').forEach(b=>{b.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white'});
+    btn.className='p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50';
+    selections.shirtColor=key;
+}
+
+function toggleAccessory(key,checked,label){
+    if(checked){
+        selections.accessories.push(key);
+        label.className='flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all border-green-500 bg-green-50';
+    }else{
+        selections.accessories=selections.accessories.filter(a=>a!==key);
+        label.className='flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all border-gray-200 bg-white';
+    }
+}
+
+function checkComplete(){
+    const btn=document.getElementById('generateBtn');
+    const hasPose=selections.pose||selections.femalePose;
+    if(selections.gender&&selections.bodyFrame&&selections.bodyDetail&&selections.chibiRatio&&hasPose&&selections.expression){
+        btn.disabled=false;
+        btn.className='w-full p-4 rounded-xl font-bold text-lg transition-all bg-gradient-to-r from-purple-500 to-purple-700 text-white hover:shadow-lg';
+    }
+}
+
+function generatePrompt(){
+    const hasPose=selections.pose||selections.femalePose;
+    if(!selections.gender||!selections.bodyFrame||!selections.bodyDetail||!selections.chibiRatio||!hasPose||!selections.expression){
+        showNotif('❌ กรุณาเลือกให้ครบทุกหมวด');
+        return;
+    }
+    
+    const nameOnTag=selections.nameTag||'WIN';
+    const selectedPose=selections.pose?poses[selections.pose]:femalePoses[selections.femalePose];
+    
+    let prompt=` ID / Likeness
+Use the provided reference photo as the identity anchor. Preserve facial likeness as the top priority. Ensure it is clearly the SAME person; do not change identity.
+
+Style
+Semi-realistic chibi / super-deformed caricature. Cute proportions, clean lines, soft shading.
+
+Face Accuracy Rules
+Keep the face highly accurate and recognizable: same facial structure, skin tone, hairstyle, eye shape and spacing, mouth shape, nose shape.
+
+Caricature Rule
+Keep all facial proportions natural and consistent. Do NOT over-distort any features.
+
+Detail Enhancement
+Preserve exact facial geometry from reference photo.
+Increase cheekbone and jawline definition.
+Avoid overly round face.
+Make nose slightly fuller and wider at base.
+Maintain accurate eye spacing and proportions.
+
+Add natural skin texture and slight realistic shine.
+Avoid overly smooth or plastic skin.
+Keep skin natural, not overly smooth.
+
+Enhance wristwatch detail and strap texture.
+Maintain accurate hand anatomy.
+Add gentle contour shadow along cheekbones and jawline.
+
+Lighting / Render
+Clean soft shading, crisp details, studio soft lighting, clean shadows.
+
+Composition / Background
+Centered composition, full-body, simple pastel background.
+
+Quality
+High resolution, sharp, high detail. simple pastel background (or transparent background if sticker mode is selected).
+
+Sticker Format
+Sticker mode (if selected): add a clean white die-cut sticker border (3–4mm) with smooth contour edge; transparent background outside the border; print-ready look, high contrast, 300 DPI.
+
+Outfit:
+Polite office work attire: ${shirtColors[selections.shirtColor].prompt}, long trousers, black leather dress shoes (formal leather shoes).
+Add an employee-style name tag on the left chest of the polo shirt.
+Name tag: black background, white text, clean and readable.
+Text on the name tag: "${nameOnTag}" (uppercase).
+Keep it neat, aligned, and proportional to the shirt.
+
+Body Structure:
+${genderTypes[selections.gender].prompt}
+
+${bodyFrames[selections.bodyFrame].prompt}
+
+${bodyDetails[selections.bodyDetail].prompt}
+
+${chibiRatio[selections.chibiRatio].prompt}
+
+Pose:
+${selectedPose.prompt}
+
+Facial Expression:
+${expressions[selections.expression].prompt}
+`;
+
+    if(selections.accessories.length>0){
+        prompt+=`\n Accessories:\n`;
+        selections.accessories.forEach(acc=>{
+            prompt+=accessories[acc].prompt+'\n';
+        });
+    }
+    
+    prompt+=`\nSafety/Quality Constraint:
+Hands and fingers are anatomically correct, no extra fingers, clean hand pose.`;
+    
+    document.getElementById('promptText').textContent=prompt;
+    updateSummary();
+    document.getElementById('resultSection').classList.remove('hidden');
+    document.getElementById('resultSection').scrollIntoView({behavior:'smooth'});
+}
+
+function updateSummary(){
+    const summary=document.getElementById('summaryText');
+    const selectedPoseName=selections.pose?poses[selections.pose].name:femalePoses[selections.femalePose].name;
+    summary.innerHTML=`
+        <div>▸ เพศ: ${genderTypes[selections.gender].name}</div>
+        <div>▸ โครงร่าง: ${bodyFrames[selections.bodyFrame].name}</div>
+        <div>▸ รายละเอียด: ${bodyDetails[selections.bodyDetail].name}</div>
+        <div>▸ สัดส่วน Chibi: ${chibiRatio[selections.chibiRatio].name}</div>
+        <div>▸ ท่าทาง: ${selectedPoseName}</div>
+        <div>▸ สีหน้า: ${expressions[selections.expression].name}</div>
+        <div>▸ สีเสื้อ: ${shirtColors[selections.shirtColor].name}</div>
+        <div>▸ ชื่อบนป้าย: ${selections.nameTag||'WIN'}</div>
+        ${selections.accessories.length>0?`<div>▸ เครื่องประดับ: ${selections.accessories.map(a=>accessories[a].name).join(', ')}</div>`:''}
+    `;
+}
+
+function copyPrompt(){
+    const text=document.getElementById('promptText').textContent;
+    navigator.clipboard.writeText(text).then(()=>{
+        showNotif('✅ คัดลอกสำเร็จ!');
+    }).catch(()=>{
+        showNotif('❌ ไม่สามารถคัดลอกได้');
+    });
+}
+
+function resetAll(){
+    selections.gender=null;
+    selections.bodyFrame=null;
+    selections.bodyDetail=null;
+    selections.chibiRatio=null;
+    selections.pose=null;
+    selections.femalePose=null;
+    selections.expression=null;
+    selections.shirtColor='red';
+    selections.nameTag='';
+    selections.accessories=[];
+    
+    document.querySelectorAll('#genderGrid button, #bodyFrameGrid button, #bodyDetailsGrid button, #chibiRatioGrid button, #poseGrid button, #femalePoseGrid button, #expressionGrid button').forEach(btn=>{
+        btn.className='p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';
+    });
+    
+    document.querySelectorAll('#shirtColorGrid button').forEach((btn,i)=>{
+        btn.className=i===0?'p-3 rounded-lg border-2 transition-all border-purple-500 bg-purple-50':'p-3 rounded-lg border-2 transition-all border-gray-200 bg-white';
+    });
+    
+    document.querySelectorAll('#accessoriesGrid input').forEach(cb=>{
+        cb.checked=false;
+        cb.closest('label').className='flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all border-gray-200 bg-white';
+    });
+    
+    document.getElementById('nameTagInput').value='';
+    document.getElementById('resultSection').classList.add('hidden');
+    document.getElementById('generateBtn').disabled=true;
+    document.getElementById('generateBtn').className='w-full p-4 rounded-xl font-bold text-lg transition-all bg-gray-300 text-gray-500 cursor-not-allowed';
+    
+    showNotif('🔄 รีเซ็ตเรียบร้อย');
+}
+
+function showNotif(msg){
+    const notif=document.getElementById('notification');
+    notif.textContent=msg;
+    notif.classList.remove('hidden');
+    setTimeout(()=>notif.classList.add('hidden'),3000);
+}
+
+function setupEventListeners(){
+    document.getElementById('generateBtn').onclick=generatePrompt;
+    document.getElementById('resetBtn').onclick=resetAll;
+    document.getElementById('copyBtn').onclick=copyPrompt;
+    document.getElementById('nameTagInput').oninput=(e)=>{
+        selections.nameTag=e.target.value.toUpperCase();
+        e.target.value=selections.nameTag;
+    };
+}
+
 init();
     </script>
 </body>
