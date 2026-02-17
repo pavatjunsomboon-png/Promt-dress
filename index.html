@@ -478,43 +478,72 @@ function generatePrompt(){
     const selectedPose=selections.pose?poses[selections.pose]:femalePoses[selections.femalePose];
     
     let prompt=` ID / Likeness
-Use the provided reference photo as the identity anchor. Preserve facial likeness as the top priority. Ensure it is clearly the SAME person; do not change identity.
+Use the provided reference photo as the identity anchor.
+Preserve facial likeness as the highest priority.
+Ensure it is clearly the SAME person.
+Do not change identity or facial structure.
 
 Style
-Semi-realistic chibi / super-deformed caricature. Cute proportions, clean lines, soft shading.
+Realistic caricature portrait (editorial illustration style).
+80% realism / 20% stylization.
+No anime influence.
+No cartoon style.
+No doll-like rendering.
+Face must look like a real photographed person.
 
 Face Accuracy Rules
-Keep the face highly accurate and recognizable: same facial structure, skin tone, hairstyle, eye shape and spacing, mouth shape, nose shape.
+Keep the face highly accurate and recognizable:
+same facial structure,
+same skin tone,
+same hairstyle,
+same eye shape and spacing,
+same mouth shape,
+same nose shape.
 
 Caricature Rule
-Keep all facial proportions natural and consistent. Do NOT over-distort any features.
+Very subtle exaggeration only (maximum 10–15%).
+Do not alter core facial structure.
+Do not enlarge eyes.
+Do not shrink chin.
+Do not modify facial geometry.
 
 Detail Enhancement
-Preserve exact facial geometry from reference photo.
-Increase cheekbone and jawline definition.
-Avoid overly round face.
-Make nose slightly fuller and wider at base.
-Maintain accurate eye spacing and proportions.
+Preserve original bone structure from reference.
+Enhance natural shadow only, without structural change.
+Maintain original nose size and proportion.
+Maintain original jaw shape and facial width.
 
-Add natural skin texture and slight realistic shine.
-Avoid overly smooth or plastic skin.
-Keep skin natural, not overly smooth.
-
-Enhance wristwatch detail and strap texture.
-Maintain accurate hand anatomy.
-Add gentle contour shadow along cheekbones and jawline.
+Skin Detail
+Visible natural skin texture.
+Subtle pores.
+Natural skin tone variation.
+Very light natural highlight on forehead and cheeks.
+No airbrushed effect.
+No plastic skin.
 
 Lighting / Render
-Clean soft shading, crisp details, studio soft lighting, clean shadows.
+Dimensional soft studio lighting.
+Natural depth and realistic shadow transitions.
+Natural shadow under chin and nose.
+Avoid flat shading.
+Avoid vector-style rendering.
 
 Composition / Background
-Centered composition, full-body, simple pastel background.
+Centered composition, full-body.
+Simple pastel background or transparent background.
 
 Quality
-High resolution, sharp, high detail. simple pastel background (or transparent background if sticker mode is selected).
+High resolution, sharp, high detail.
+Photorealistic facial rendering.
+No simplified illustration style.
 
-Sticker Format
-Sticker mode (if selected): add a clean white die-cut sticker border (3–4mm) with smooth contour edge; transparent background outside the border; print-ready look, high contrast, 300 DPI.
+Sticker Format (if selected)
+Clean white die-cut sticker border (3–4mm).
+Smooth contour edge.
+Transparent background outside border.
+Print-ready look.
+300 DPI.
+
 
 Outfit:
 Polite office work attire: ${shirtColors[selections.shirtColor].prompt}, long trousers, black leather dress shoes (formal leather shoes).
